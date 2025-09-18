@@ -7,55 +7,108 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# Manajemen Produk
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Aplikasi web sederhana untuk manajemen produk (CRUD - Create, Read, Update, Delete) yang dibangun dengan Laravel.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tentang Project
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Proyek ini adalah aplikasi **Product Management** yang memungkinkan pengguna untuk mengelola daftar produk. Pengguna dapat menambah, melihat, mengedit, dan menghapus produk dari daftar. Aplikasi ini dibuat sebagai contoh dasar penggunaan framework Laravel untuk operasi CRUD.
 
-## Learning Laravel
+### Dibangun Dengan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+  * **[Laravel](https://laravel.com/)**: Framework aplikasi web dengan sintaks yang ekspresif dan elegan.
+  * **[Vite](https://vitejs.dev/)**: Alat build frontend modern.
+  * **[Tailwind CSS](https://tailwindcss.com/)**: Kerangka kerja CSS untuk desain yang cepat dan modern.
+  * **[MySQL](https://www.mysql.com/)**: Sistem manajemen basis data relasional open-source.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Memulai
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Untuk menjalankan proyek ini di lingkungan lokal Anda, ikuti langkah-langkah di bawah ini.
 
-## Laravel Sponsors
+### Prasyarat
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Pastikan Anda memiliki perangkat lunak berikut yang terinstal di sistem Anda:
 
-### Premium Partners
+  * PHP 8.2 atau lebih tinggi
+  * Composer
+  * Node.js & NPM
+  * MySQL
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Instalasi
 
-## Contributing
+1.  **Clone repositori**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    ```sh
+    git clone https://your-repository-url/product-management.git
+    cd product_management
+    ```
 
-## Code of Conduct
+2.  **Instal dependensi Composer**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    ```sh
+    composer install
+    ```
 
-## Security Vulnerabilities
+3.  **Instal dependensi NPM**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    ```sh
+    npm install
+    ```
 
-## License
+4.  **Buat file `.env`**
+    Salin file `.env.example` menjadi `.env` baru.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ```sh
+    cp .env.example .env
+    ```
+
+5.  **Hasilkan kunci aplikasi**
+
+    ```sh
+    php artisan key:generate
+    ```
+
+6.  **Konfigurasi Database**
+
+      * Buat database baru di MySQL untuk aplikasi ini.
+      * Buka file `.env` dan perbarui variabel koneksi database:
+        ```env
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=nama_database_anda
+        DB_USERNAME=user_database_anda
+        DB_PASSWORD=password_anda
+        ```
+
+7.  **Jalankan migrasi dan seeder database**
+    Ini akan membuat tabel `products` dan mengisinya dengan data awal.
+
+    ```sh
+    php artisan migrate --seed
+    ```
+
+8.  **Jalankan server pengembangan**
+
+    ```sh
+    php artisan serve
+    ```
+
+9.  **Compile aset frontend**
+    Buka terminal baru dan jalankan perintah berikut untuk meng-compile aset dengan Vite.
+
+    ```sh
+    npm run dev
+    ```
+
+Sekarang, Anda dapat membuka aplikasi di `http://localhost:8000` di browser Anda.
+
+## Penggunaan
+
+Setelah aplikasi berjalan, Anda dapat melakukan operasi berikut:
+
+  * **Melihat Daftar Produk**: Halaman utama menampilkan semua produk yang ada di database.
+  * **Menambah Produk**: Klik tombol "Tambah Produk" untuk membuka formulir dan menambahkan produk baru.
+  * **Mengedit Produk**: Klik tombol "Edit" pada setiap produk untuk memperbarui detailnya.
+  * **Menghapus Produk**: Klik tombol "Hapus" pada setiap produk untuk menghapusnya dari database.
